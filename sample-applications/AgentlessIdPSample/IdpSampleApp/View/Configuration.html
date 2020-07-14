@@ -1,0 +1,133 @@
+<?php
+	if(isset($this->viewData[IdpConstants::ERROR_MESSAGE]))
+	{
+		$basePfUrl = $_POST[IdpConstants::BASE_PF_URL];
+		$username = $_POST[IdpConstants::ADAPTER_USERNAME];
+		$passphrase = $_POST[IdpConstants::ADAPTER_PASSPHRASE];
+		$adapterId = $_POST[IdpConstants::ADAPTER_ID];
+		$targetURL = $_POST[IdpConstants::TARGET_URL];
+		$partnerEntityId = $_POST[IdpConstants::PARTNET_ENTITY_ID];
+	}
+	else
+	{
+		$basePfUrl = $GLOBALS[IdpConstants::IDP_ADAPTER_CONFIGURATION][IdpConstants::BASE_PF_URL];
+		$username = $GLOBALS[IdpConstants::IDP_ADAPTER_CONFIGURATION][IdpConstants::ADAPTER_USERNAME];
+		$passphrase = $GLOBALS[IdpConstants::IDP_ADAPTER_CONFIGURATION][IdpConstants::ADAPTER_PASSPHRASE];
+		$adapterId = $GLOBALS[IdpConstants::IDP_ADAPTER_CONFIGURATION][IdpConstants::ADAPTER_ID];
+		$targetURL = $GLOBALS[IdpConstants::IDP_ADAPTER_CONFIGURATION][IdpConstants::TARGET_URL];
+		$partnerEntityId = $GLOBALS[IdpConstants::IDP_ADAPTER_CONFIGURATION][IdpConstants::PARTNET_ENTITY_ID];
+	}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link media="screen" href="../IdPSampleApp/View/css/main.css" type="text/css" rel="stylesheet">
+        <link href="../IdPSampleApp/View/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+        <script src="../IdPSampleApp/View/js/common.js"></script>
+        <title>Agentless Integration Kit PHP Sample IdP</title>
+    </head>
+    <body>
+        <div class="body-container">
+            <div class="ping-body-container">
+                <div class="header-block">
+                    <div class="header">Identity Provider Sample</div>
+                    <div class="sub-header">Configuration</div>
+                </div>
+                <div class="config-container">
+					<?php if(isset($this->viewData[IdpConstants::ERROR_MESSAGE]))
+					{
+					?>
+						<div class="configuration-failure"><?= $this->viewData[IdpConstants::ERROR_MESSAGE] ?></div>
+					<?php
+					}
+					?>
+                	<form name="idp-adapter-configuration" 
+                		  method="post" 
+                		  enctype="application/x-www-form-urlencoded" 
+                		  action="<?php UrlUtil::configureUrl() ?>">
+                		<div class="grid-container">
+                			<div class="ping-input grid-a">
+								<label class="ping-input-label">BASE PF URL</label>
+								<div class="ping-input-container">
+									<input type="text" 
+										   name="<?php echo IdpConstants::BASE_PF_URL ?>"
+										   id="base_pf_url_input" 
+										   value="<?php echo $basePfUrl ?>">
+								</div>
+                			</div>
+                			<div class="ping-input grid-b">
+								<label class="ping-input-label">APPLICATION USERNAME</label>
+								<div class="ping-input-container">
+									<input type="text" 
+										   name="<?php echo IdpConstants::ADAPTER_USERNAME ?>" 
+										   id="application_username_input" 
+										   value="<?php echo $username ?>">
+								</div>
+                			</div>
+                			<div class="ping-input grid-c">
+								<label class="ping-input-label">APPLICATION PASSPHRASE</label> 
+								<div class="ping-input-container">
+                                    <input type="text" 
+										   name="<?php echo IdpConstants::ADAPTER_PASSPHRASE ?>" 
+										   id="application_passphrase_input" 
+										   value="<?php echo $passphrase ?>">
+							    </div>
+                			</div>
+                			<div class="ping-input grid-d">
+								<label class="ping-input-label">IDP ADAPTER ID</label>
+								<div class="ping-input-container">
+                                    <input type="text" 
+										   name="<?php echo IdpConstants::ADAPTER_ID ?>" 
+										   id="adapter_id_input" 
+										   value="<?php echo $adapterId ?>">
+								</div>
+                			</div>	
+                			<div class="ping-input grid-g">
+                            	<label class="ping-input-label">TARGET URL</label>
+								<div class="ping-input-container">
+                                    <input type="text" 
+										   name="<?php echo IdpConstants::TARGET_URL ?>" 
+										   id="target_url_input" 
+										   value="<?php echo $targetURL ?>">
+								</div>
+							</div> 	
+                			<div class="ping-input grid-h">
+                            	<label class="ping-input-label">PARTNER ENTITY ID</label>
+								<div class="ping-input-container">
+                                    <input type="text" 
+										   name="<?php echo IdpConstants::PARTNET_ENTITY_ID ?>" 
+										   id="partner_entity_id_input" 
+										   value="<?php echo $partnerEntityId ?>">
+								</div>
+							</div> 	
+                		</div>
+                		<div class="configuration-buttons-container">
+							<div class="ping-input-container">
+								<input class="table-button" 
+									   id="submit_button" 
+									   name="submit" 
+									   type="submit" 
+									   value="Save"/>
+							</div>
+							<div class="ping-input-container">
+								<div class="cancel">
+									<a onclick="javascript:back();">Cancel</a>
+								</div>
+							</div>
+                		</div>	
+                	</form>
+                </div>
+            </div>
+            <div class="ping-footer-container">
+                <div class="ping-footer">
+                    <div class="ping-credits"></div>
+                    <div class="ping-copyright">
+                    	Copyright © 2003-2020. Ping Identity Corporation. All rights reserved.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

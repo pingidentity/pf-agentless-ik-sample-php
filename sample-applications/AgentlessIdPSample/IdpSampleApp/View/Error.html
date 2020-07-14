@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link media="screen" href="../IdPSampleApp/View/css/main.css" type="text/css" rel="stylesheet">
+        <link href="../IdPSampleApp/View/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+        <title>Agentless Integration Kit PHP Sample IdP</title>
+    </head>
+    <body>
+        <div class="body-container">
+            <div class="ping-body-container">
+                <div class="header-block">
+                    <div class="header">Error</div>
+                    <div class="left-header">
+                    	<a href=<?php echo UrlUtil::configureUrl() ?>>Configuration</a>
+                    </div>
+                    <div class="right-header">
+                    	<a href=<?php echo UrlUtil::ssoUrl() ?>>Start Over</a>
+                    </div>
+                </div>
+                <div class="ping-messages ping-nopad">
+					<p>Oops</p>
+					<p>Looks like something is not right. Please ensure your configuration is correct and check the server logs for more information.</p>
+                    <?php
+                        if ($this->viewData != null)
+                        {
+                    ?>
+                        <p><?php echo "Additional Information: " . $this->viewData?></p>
+                    <?php
+                        }
+                    ?>
+					<p class="ping-note-text">500 Internal Server Error</p>
+                </div>
+			</div>
+            <div class="ping-footer-container">
+                <div class="ping-footer">
+                    <div class="ping-credits"></div>
+                    <div class="ping-copyright">
+                    	Copyright © 2003-2020. Ping Identity Corporation. All rights reserved.
+					</div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
