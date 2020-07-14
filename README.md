@@ -30,7 +30,7 @@ The samples work with all major browsers, including Chrome, Firefox, and Microso
 ### Deploying the PingFederate configuration archive
 The included configuration archive creates the adapter instances and connections needed to run the sample applications.
 
-To deploy the configuration archive, import the `Configuration-archive/data.zip` file through the administrator console or copy it to the drop-in-deployer directory. For instructions, see [Configuration archive](https://docs.pingidentity.com/csh?Product=pf-latest&topicname=oor1564002974031.html) in the PingFederate documentation.
+To deploy the configuration archive, import the `configuration-archive/data.zip` file through the administrator console or copy it to the drop-in-deployer directory. For instructions, see [Configuration archive](https://docs.pingidentity.com/csh?Product=pf-latest&topicname=oor1564002974031.html) in the PingFederate documentation.
 
 **Caution:** Deploying the configuration archive will destroy your existing PingFederate configuration. We recommend that you test it on a fresh installation of PingFederate or back up your current configuration as shown in [Exporting an archive](https://docs.pingidentity.com/csh?Product=pf-latest&topicname=amd1564002974196.html) in the PingFederate documentation.
 
@@ -47,7 +47,7 @@ for the SP sample application. If you want to use a different hostname or port, 
 ```https://localhost:9031/sp/startSSO.ping?PartnerIdpId=PF-DEMO```
 
 ## Modifying your application
-When you are ready to make changes to your own application, see the examples in the `Example-code` directory to help you get started.
+When you are ready to make changes to your own application, see the examples in the `example-code` directory to help you get started.
 
 ## Documentation
 
