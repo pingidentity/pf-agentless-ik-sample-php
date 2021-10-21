@@ -1,7 +1,7 @@
 <?php
 
-// loads app configuration according to idp-adpater-configuration.ini file for each request
-// any changes to configuration through UI will invoke save and reload of app with new configuraiton
+// loads app configuration according to idp-adapter-configuration.ini file for each request
+// any changes to configuration through UI will invoke save and reload of app with new configuration
 
 class ConfigurationManager
 {

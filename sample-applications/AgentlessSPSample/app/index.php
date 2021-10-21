@@ -12,8 +12,22 @@
 
 	$modules = [ROOT, APP, CONFIGURATION, CONTROLLER, EXCEPTION, LIB, MODEL, VIEW];
 
+    /**
+     * Custom loader to look for CamelCased filenames names rather than the default
+     * of lower cased filenames
+     */
+    function custom_load($class)
+    {
+        $include_path = explode(PATH_SEPARATOR, get_include_path());
+        foreach ($include_path as $folder) {
+            if (count(glob("$folder$class.php")) > 0) {
+                include $folder . $class . ".php";
+            }
+        }
+    }
+
 	set_include_path(get_include_path() . PATH_SEPARATOR . implode(PATH_SEPARATOR, $modules));
-	spl_autoload_register('spl_autoload', false);
+	spl_autoload_register('custom_load', false);
 
 	$spAdapterConfiguration = new ConfigurationManager();
 	$spAdapterConfiguration->loadConfiguration();

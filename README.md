@@ -19,7 +19,7 @@ The included PingFederate configuration archive allows a single instance of Ping
 
 * PingFederate 8.x or later
 * PingFederate Agentless Integration Kit 1.5 or later
-* PHP 7.0 or later
+* PHP 7.0 or later with the php_curl extension installed
 
 ### Browser compatibility
 
